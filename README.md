@@ -1,2 +1,1 @@
-# Java
-Corrections des exercices JAVA
+Vous trouverez la correction des différents exercices JAVA, réalisés en cours.
