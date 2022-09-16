@@ -1,3 +1,4 @@
+
 public class Exercice2 {
 	
 	public static void main(String[] args) {
@@ -9,11 +10,12 @@ public class Exercice2 {
         int aleat  = Math.abs( (int)(System.currentTimeMillis()) );
         int numero = aleat%listeMots.length;
         String mot = listeMots[numero];
-        Terminal.ecrireStringln("index aleatoire="+numero+" Mot trouvÃ©:");
-        //TODO Le mot a trouver est transformÃ© en tableau de char
-       
-        //TODO Le mot cache de la longueur du mot a trouver contient au dÃ©part que des "-"
-       
+        Terminal.ecrireStringln("index aleatoire="+numero+" Mot trouvé:"+ mot);
+        // Le mot a trouver est transformé en tableau de char
+        char[] motATrouve = mot.toCharArray();
+        // Le mot cache de la longueur du mot a trouver contient au départ que des "-"
+        char[] motCache   = new char[motATrouve.length];
+        for(int i=0;i<motCache.length;i++) motCache[i] = '-';
      // Nombre d'erreur du joueur. A plus de 7 erreurs il a perdu.
         int nbErreur = 0;
         int nbMaxErreur = 7;
@@ -28,8 +30,8 @@ public class Exercice2 {
         
         while(!fini)
         {
-            //TODO Si le joueur a perdu
-            if ()
+            // Si le joueur a perdu
+            if (nbErreur>nbMaxErreur)
                 {
                     Terminal.ecrireString("Perdu! Le mot est: "+mot);
                     fini = true;
@@ -45,45 +47,63 @@ public class Exercice2 {
                     Terminal.ecrireString("Saisir un car  : ");
                     char caracJoue = Terminal.lireChar();
                     
-                    //TODO Si le caractere joue a deja ete jouee
-                    if (caracDansTab())
-                       
+                    // Si le caractere joue a deja ete jouee
+                    if (caracDansTab(caracJoue,lettreJouees))
+                        System.out.println("Caractere deja joue");
                     else
                         {
-                            //TODO Si le caractere joue fait parti du mot a trouve
+                            // Si le caractere joue fait parti du mot a trouve
                             //  alors on decouvre les lettres
                             //  sinon le joueur a fait une erreur
                             //
                             if (caracDansTab(caracJoue,motATrouve))
                                 {
-                                   
+                                    if (majMotCache(caracJoue,motCache,motATrouve))
+                                        {
+                                            fini=true;
+                                            Terminal.ecrireStringln("Bravo!!");
+                                        }
                                 }
                             else
                                 {
                                     nbErreur++;
                                 }
                             
-                            //TODO On stocke le caractÃ¨re jouÃ©
-                          
-                            //TODO on incrÃ©emente le nombre de coup jouÃ©s
-                           
+                            // On stocke le caractère joué
+                            lettreJouees[nbCoupJoues]=caracJoue;
+                            //on incréemente le nombre de coup joués
+                            nbCoupJoues++;
                                 
                         }
                 }
         }
         }
-        //TODO Recherche si le caractere est dans un tableau de caractÃ¨re
+        // Recherche si le caractere est dans un tableau de caractère
         //
         static boolean caracDansTab(char c,char[] tab)
         {
-          
+            for(char e:tab)
+                {
+                    if (c==e) 
+                        return true;
+                }
+            return false;
         }
-     //TODO Remplace les '-' par le caractÃ¨re joue si il existe.
-        // Retourne true si toutes les lettres ont Ã©tÃ© trouvÃ©es
+     // Remplace les '-' par le caractère joue si il existe.
+        // Retourne true si toutes les lettres ont été trouvées
         //
         static boolean majMotCache(char c,char[] motCache,char[] motATrouve)
         {
-           
+            int nbc=0;
+            for(int i=0;i<motCache.length;i++)
+                {
+                    if(motATrouve[i]==c)
+                        motCache[i]=c;
+                    if(motCache[i]=='-')
+                        nbc++;
+                }
+            if (nbc==0) return(true);
+            else return false;
         }
 }
 
