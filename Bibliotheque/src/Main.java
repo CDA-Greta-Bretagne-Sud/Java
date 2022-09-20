@@ -36,12 +36,14 @@ public class Main {
 		b.AfficherEmprunts();
 		b.rechercheEmprunt(l1);
 		b.rechercheEmprunt(p2);
-		//try {
+		b.SupprimerEmprunt(e2);
+		b.AfficherEmprunts();
+		try {
 		b.rechercheEmprunt(p3);
 		
-		/**}catch(EnregNonTrouve e) {
+		}catch(EnregNonTrouve e) {
 			System.out.println("Enregistrement non trouvé dans la bibliotheque");
-		}*/
+		}
 	}
 
 }

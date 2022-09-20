@@ -82,6 +82,8 @@ public class Bibliotheque {
 			}
 	}
 	public void SupprimerEmprunt(Emprunt e) {
-		//TODO
+		if(e!=null) {
+			ListeEmprunt.remove(e);
+			}
 	}
 }
