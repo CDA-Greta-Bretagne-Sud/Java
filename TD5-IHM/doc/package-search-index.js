@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"fr.cda.ihm"},{"l":"fr.cda.projet"},{"l":"fr.cda.tore"},{"l":"fr.cda.util"}];updateSearchResults();
