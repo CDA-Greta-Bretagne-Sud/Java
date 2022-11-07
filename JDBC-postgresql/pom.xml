@@ -6,23 +6,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>vannes.cda.jdbc</groupId>
-    <artifactId>mysql</artifactId>
+    <artifactId>postgresql</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>mysql</name>
+    <name>postgresql</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <mysql.version>8.0.16</mysql.version>
+        <postgresql.version>42.2.5</postgresql.version>
     </properties>
 
     <dependencies>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
 
     </dependencies>
